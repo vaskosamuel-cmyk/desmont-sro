@@ -19,27 +19,30 @@ export default function Home() {
 
   const servicesRef = useRef<HTMLDivElement>(null);
   const [activeServiceIndex, setActiveServiceIndex] = useState(0);
+  const scrollTimeoutRef = useRef<number | null>(null);
 
   const handleServicesScroll = (e: any) => {
     const container = e.currentTarget;
-    if (container.children.length > 0) {
-      const itemWidth = 316; // 300px width + 16px gap
-      const index = Math.round(container.scrollLeft / itemWidth);
-      if (index >= 0 && index < services.length) {
-        setActiveServiceIndex(index);
+    if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
+    
+    scrollTimeoutRef.current = window.setTimeout(() => {
+      if (container.children.length > 0) {
+        const itemWidth = 316; // 300px width + 16px gap
+        const index = Math.round(container.scrollLeft / itemWidth);
+        if (index >= 0 && index < services.length) {
+          setActiveServiceIndex(index);
+        }
       }
-    }
+    }, 50);
   };
 
   const scrollServices = (direction: 'left' | 'right') => {
     if (servicesRef.current) {
-      const itemWidth = 316; // 300px width + 16px gap
-      if (direction === 'left' && activeServiceIndex > 0) {
+      const itemWidth = 316;
+      if (direction === 'left') {
         servicesRef.current.scrollBy({ left: -itemWidth, behavior: 'smooth' });
-        setActiveServiceIndex(prev => prev - 1);
-      } else if (direction === 'right' && activeServiceIndex < services.length - 1) {
+      } else if (direction === 'right') {
         servicesRef.current.scrollBy({ left: itemWidth, behavior: 'smooth' });
-        setActiveServiceIndex(prev => prev + 1);
       }
     }
   };
@@ -181,10 +184,10 @@ export default function Home() {
           <div 
             ref={servicesRef}
             onScroll={handleServicesScroll}
-            className="flex overflow-x-auto snap-x snap-mandatory gap-4 w-[calc(100%+3rem)] -mx-6 pb-6 [&::-webkit-scrollbar]:hidden" 
+            className="flex overflow-x-auto snap-x snap-mandatory gap-4 w-[calc(100%+3rem)] -mx-6 pb-6 px-[calc(50%-150px)] [&::-webkit-scrollbar]:hidden" 
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
-            <div className="w-[calc(50%-150px-16px)] shrink-0" />
+            
             {services.map((service, index) => (
               <Link 
                 key={service.id} 
@@ -222,7 +225,7 @@ export default function Home() {
                 </div>
               </Link>
             ))}
-            <div className="w-[calc(50%-150px-16px)] shrink-0" />
+            
           </div>
           
           {/* Navigation Controls */}
