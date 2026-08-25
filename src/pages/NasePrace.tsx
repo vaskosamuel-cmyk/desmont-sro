@@ -13,7 +13,7 @@ export default function NasePrace() {
   const scrollGallery = (direction: 'left' | 'right') => {
     if (galleryRef.current) {
       const el = galleryRef.current;
-      const scrollAmount = el.clientWidth * 0.85;
+      const scrollAmount = el.clientWidth * 0.85 + 16;
       const currentScroll = el.scrollLeft;
       const maxScroll = el.scrollWidth - el.clientWidth;
       
@@ -337,7 +337,7 @@ export default function NasePrace() {
             
             <div 
               ref={galleryRef}
-              className="w-full flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-5 pb-6 px-6"
+              className="w-full flex items-center overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-4 pb-6 px-[7.5%]"
               style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
               {projects.map((project, idx) => (

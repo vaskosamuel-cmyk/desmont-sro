@@ -2,39 +2,50 @@ const fs = require('fs');
 
 let content = fs.readFileSync('src/pages/Home.tsx', 'utf8');
 
-// Update Hero Heading Line Height and Layout spacing
-content = content.replace(
-  'text-[36px] sm:text-[40px] font-extrabold tracking-tight text-white mb-4 uppercase leading-[1.1] max-w-[330px]',
-  'text-[36px] sm:text-[40px] font-extrabold tracking-tight text-white mb-4 uppercase leading-[1.25] max-w-[330px]'
-);
+const newServices = `const services = [
+  {
+    id: '01',
+    title: 'Stavby na kľúč',
+    desc: 'Kompletná výstavba rodinných domov od základovej dosky až po odovzdanie. Hrubá stavba, strechy a inžinierske siete.',
+    image: '/desmostav-hruba-stavba-08.webp',
+    path: '/sluzby/stavby-na-kluc'
+  },
+  {
+    id: '02',
+    title: 'Rekonštrukcie',
+    desc: 'Kompletné rekonštrukcie domov a bytov vrátane prerábky bytových jadier a kúpeľní na kľúč.',
+    image: '/desmostav-rekonstrukcia-domu-03.webp',
+    path: '/sluzby/rekonstrukcie'
+  },
+  {
+    id: '03',
+    title: 'Exteriér a Fasády',
+    desc: 'Zatepľovanie budov, fasádne úpravy, zemné a výkopové práce, pokládka dlažby a terénne úpravy.',
+    image: '/desmostav-stavba-na-kluc-06.webp',
+    path: '/sluzby/exterier-a-fasady'
+  },
+  {
+    id: '04',
+    title: 'Interiér',
+    desc: 'Sadrokartóny, kazetové stropy, štukové omietky, stierky, tapetovanie a maliarske práce.',
+    image: '/desmostav-vystavba-rodinnych-domov-22.webp',
+    path: '/sluzby/interier'
+  },
+  {
+    id: '05',
+    title: 'Inštalácie',
+    desc: 'Profesionálna montáž vody, kanalizácie, kúrenia a kompletných elektroinštalácií.',
+    image: '/desmostav-stavebne-prace-20.webp',
+    path: '/sluzby/instalacie'
+  }
+];`;
 
-content = content.replace(
-  'className="relative z-10 px-6 pb-[15dvh] flex flex-col items-center text-center"',
-  'className="relative z-10 px-6 pb-[22dvh] flex flex-col items-center text-center"'
-);
+content = content.replace(/const services = \[\s*\{[\s\S]*?\}\s*\];/, newServices);
 
-// Update Hero Button
+// Tweak gradient in services
 content = content.replace(
-  /NEZÁVÄZNÁ CENOVÁ PONUKA <ArrowRight className="w-5 h-5" \/>/g,
-  'NEZÁVÄZNÁ CENOVÁ PONUKA <ArrowRight className="w-5 h-5 shrink-0" />'
-);
-
-content = content.replace(
-  /NEZÁVÄZNÁ CENOVÁ PONUKA/g,
-  'NEZÁVÄZNÁ CENOVÁ PONUKA'
-);
-
-// Add small arrow and text 'viac informacii' under CTA in hero
-// Actually this already exists in Home.tsx:
-// <a href="#sluzby" ...>
-//   <span className="text-[10px] font-bold tracking-widest uppercase">Viac informácií</span>
-//   <ChevronDown className="w-4 h-4 animate-bounce" strokeWidth={2} />
-// </a>
-
-// Update Hero Image
-content = content.replace(
-  '<img\n              src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=2000"\n              alt="Modern construction house"\n              className="w-full h-full object-cover object-center"\n            />',
-  '<img\n              src="/desmostav-stavba-na-kluc-24.webp"\n              alt="Modern construction house"\n              className="w-full h-full object-cover object-center"\n            />'
+  /<div className="absolute inset-x-0 bottom-0 h-\[70%\] bg-gradient-to-t from-\[\#1A1A1A\] via-\[\#1A1A1A\]\/70 to-transparent"><\/div>/g,
+  '<div className="absolute inset-x-0 bottom-0 h-[80%] bg-gradient-to-t from-black/90 via-black/50 to-transparent pointer-events-none"></div>'
 );
 
 fs.writeFileSync('src/pages/Home.tsx', content);
