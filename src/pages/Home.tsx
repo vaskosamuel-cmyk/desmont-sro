@@ -240,7 +240,7 @@ export default function Home() {
             
             <div className="flex flex-col items-center gap-2">
                <span className="text-[15px] font-extrabold text-[#E5A93B] tracking-widest">
-                 0{activeServiceIndex + 1} <span className="text-[#E5A93B]/40 font-bold">/ 04</span>
+                 0{activeServiceIndex + 1} <span className="text-[#E5A93B]/40 font-bold">/ 0{services.length}</span>
                </span>
                <div className="flex gap-1.5">
                  {services.map((s, idx) => (
