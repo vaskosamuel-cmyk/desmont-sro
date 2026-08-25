@@ -161,7 +161,7 @@ export default function Rekonstrukcie() {
         <section className="relative h-[65dvh] min-h-[450px] shrink-0 flex flex-col justify-end pb-12">
           <div className="absolute inset-0 z-0">
             <img
-              src="/desmostav-kompletna-rekonstrukcia-07.webp"
+              src="/desmostav-rekonstrukcie-bathroom.webp"
               alt="Starostlivost"
               className="w-full h-full object-cover object-center"
             />

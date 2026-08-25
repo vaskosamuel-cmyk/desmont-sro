@@ -113,7 +113,7 @@ export default function StavbyNaKluc() {
         <section className="relative h-[65dvh] min-h-[450px] shrink-0 flex flex-col justify-end pb-12">
           <div className="absolute inset-0 z-0">
             <img
-              src="/desmostav-hruba-stavba-35.webp"
+              src="/desmostav-stavby-na-kluc-new.webp"
               alt="Základová doska a hrubá stavba"
               className="w-full h-full object-cover object-center"
             />

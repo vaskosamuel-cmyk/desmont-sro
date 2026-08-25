@@ -131,7 +131,7 @@ export default function Interier() {
         <section className="relative h-[65dvh] min-h-[450px] shrink-0 flex flex-col justify-end pb-12">
           <div className="absolute inset-0 z-0">
             <img
-              src="/desmostav-prerabka-domu-10.webp"
+              src="/desmostav-interier-plaster.webp"
               alt="Inštalácie"
               className="w-full h-full object-cover object-center"
             />

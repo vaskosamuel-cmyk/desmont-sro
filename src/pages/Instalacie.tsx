@@ -143,7 +143,7 @@ export default function Instalacie() {
         <section className="relative h-[65dvh] min-h-[450px] shrink-0 flex flex-col justify-end pb-12">
           <div className="absolute inset-0 z-0">
             <img
-              src="/desmostav-hruba-stavba-17.webp"
+              src="/desmostav-instalacie-electric.webp"
               alt="Technické inštalácie"
               className="w-full h-full object-cover object-center"
             />

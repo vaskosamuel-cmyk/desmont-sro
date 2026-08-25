@@ -114,7 +114,7 @@ export default function Home() {
           {/* Background Image with Overlay */}
           <div className="absolute inset-0 z-0">
             <img
-              src="/desmostav-stavba-na-kluc-24.webp"
+              src="/desmostav-hero-sunset.webp"
               alt="Modern construction house"
               className="w-full h-full object-cover object-center"
             />
@@ -800,14 +800,14 @@ const services = [
     id: '01',
     title: 'Stavby na kľúč',
     desc: 'Kompletná výstavba rodinných domov od základovej dosky až po odovzdanie. Hrubá stavba, strechy a inžinierske siete.',
-    image: '/desmostav-hruba-stavba-08.webp',
+    image: '/desmostav-stavby-na-kluc-new.webp',
     path: '/sluzby/stavby-na-kluc'
   },
   {
     id: '02',
     title: 'Rekonštrukcie',
     desc: 'Kompletné rekonštrukcie domov a bytov vrátane prerábky bytových jadier a kúpeľní na kľúč.',
-    image: '/desmostav-rekonstrukcia-domu-03.webp',
+    image: '/desmostav-rekonstrukcie-bathroom.webp',
     path: '/sluzby/rekonstrukcie'
   },
   {
@@ -821,14 +821,14 @@ const services = [
     id: '04',
     title: 'Interiér',
     desc: 'Sadrokartóny, kazetové stropy, štukové omietky, stierky, tapetovanie a maliarske práce.',
-    image: '/desmostav-vystavba-rodinnych-domov-22.webp',
+    image: '/desmostav-interier-plaster.webp',
     path: '/sluzby/interier'
   },
   {
     id: '05',
     title: 'Inštalácie',
     desc: 'Profesionálna montáž vody, kanalizácie, kúrenia a kompletných elektroinštalácií.',
-    image: '/desmostav-stavebne-prace-20.webp',
+    image: '/desmostav-instalacie-electric.webp',
     path: '/sluzby/instalacie'
   }
 ];
